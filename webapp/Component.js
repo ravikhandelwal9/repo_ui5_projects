@@ -7,6 +7,8 @@ sap.ui.define([
             manifest:"json"
         },
 //Added Comment
+
+//added new lines
         init:function(){
             oUiController.prototype.init.apply(this);
             var oRouter = this.getRouter();
