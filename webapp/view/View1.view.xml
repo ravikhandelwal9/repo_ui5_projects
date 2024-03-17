@@ -1,0 +1,46 @@
+<mvc:View   xmlns:form="sap.ui.layout.form"
+            xmlns:mvc="sap.ui.core.mvc"
+            xmlns:core="sap.ui.core"
+            xmlns="sap.m"
+            controllerName="wp.fin.payroll.controller.View1">
+<Page showNavButton="true" navButtonPress="goNext" title="View1">
+    <headerContent>
+        <Toolbar>
+        </Toolbar>
+    </headerContent>
+<ObjectListItem title="{name}" intro="{taste}" icon="{image}" number="{price}" numberUnit="{curr}" type="Navigation">
+</ObjectListItem>
+
+<IconTabBar>
+<!-- <content>
+<Label text="value here:"/>
+<Input width = "20%"/>
+</content> -->
+<items>
+
+<!-- Tab Fruit Details -->
+    <IconTabFilter icon="sap-icon://information" text="Fruit Details">
+        <core:Fragment type="XML" fragmentName="wp.fin.payroll.fragments.moreInfo"/>
+        <core:Fragment type="XML" fragmentName="wp.fin.payroll.fragments.ordItems"/>
+    </IconTabFilter>
+
+<!-- Tab Supplier -->
+    <IconTabFilter icon="sap-icon://supplier" text="Suppliers" >
+        <core:Fragment type="XML" fragmentName="wp.fin.payroll.fragments.supplier"/>
+    </IconTabFilter>
+
+<!-- Cities -->
+    <IconTabFilter icon="sap-icon://building" text="Cities">
+        <core:Fragment type="XML" fragmentName="wp.fin.payroll.fragments.cities"/>
+    </IconTabFilter>
+</items>
+</IconTabBar>
+<footer>
+    <Toolbar>
+    <ToolbarSpacer ></ToolbarSpacer>
+    <Button text = "Save" type="Accept" icon = "sap-icon://save" press="onSave"/>
+    <Button text = "Cancel" type="Reject" icon = "sap-icon://cancel" press="onCancel"/>
+    </Toolbar>
+</footer>
+</Page>
+</mvc:View>

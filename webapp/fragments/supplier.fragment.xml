@@ -1,0 +1,45 @@
+<core:FragmentDefinition xmlns:form="sap.ui.layout.form"
+                        xmlns:core="sap.ui.core"
+                        xmlns="sap.m">
+        <Table id="idSuppliers" items="{/supplier}" itemPress="loadSupplier">
+        <headerToolbar>
+            <Toolbar>
+                <ToolbarSpacer />
+                <Button icon="sap-icon://filter" text="Search" press="onSupplierSearch"></Button>
+            </Toolbar>
+        </headerToolbar>
+            <columns>
+                <Column>
+                    <header>
+                    <Text text="Name"/>
+                    </header>
+                </Column>
+                <Column minScreenWidth="Tablet" demandPopin="true">
+                    <header>
+                    <Text text="Since When"/>
+                    </header>
+                </Column>
+                <Column minScreenWidth="Tablet" demandPopin="true">
+                    <header>
+                    <Text text="City"/>
+                    </header>
+                </Column>
+                <Column minScreenWidth="Tablet" demandPopin="true">
+                    <header>
+                    <Text text="Contact #"/>
+                    </header>
+                </Column>
+            </columns>
+            <items>
+            <!-- <ColumnListItem type="Navigation" press="loadSupplier"> -->
+            <ColumnListItem type="Navigation">
+                <cells>
+                <Text text="{name}"/>
+                <Text text="{sinceWhen}"/>
+                <Input value="{city}" showValueHelp="true" valueHelpRequest="onF4Help"/>
+                <Text text="{contactNo}"/>
+                </cells>
+            </ColumnListItem>
+            </items>
+        </Table>
+</core:FragmentDefinition>

@@ -1,0 +1,13 @@
+specVersion: "3.2"
+metadata:
+  name: fiorilikeapp
+type: application
+server:
+  customMiddleware:
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        backend:
+        - path: /sap
+          url: http://sapcrxaasx001.usw2.sapma.nike.com:8001
+          client: '110'

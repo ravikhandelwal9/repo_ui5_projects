@@ -1,0 +1,27 @@
+<html>
+    <head>
+
+        <script src="https://ui5.sap.com/resources/sap-ui-core.js"
+        data-sap-ui-libs="sap.m"
+        data-sap-ui-theme="sap_fiori_3_dark"
+        data-sap-ui-resourceroots='{
+            "wp.fin.payroll":"./"
+        }'
+        data-sap-ui-bindingSyntax="complex"
+        ></script>
+
+        <script>
+//Step1: Define Component, this looks for Component.js
+            var oComponent = new sap.ui.core.ComponentContainer({
+                name : "wp.fin.payroll"
+            });
+        </script>
+        <script>
+            oComponent.placeAt("idContent");
+        </script>
+
+    </head>
+    <body class ="sapUiBody">
+        <div id="idContent"></div>
+    </body>
+</html>

@@ -1,0 +1,10 @@
+<mvc:View 
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    controllerName="wp.fin.payroll.controller.App">
+    <Text text="This is my App View"/>
+
+    <SplitApp id="idAppCon"/>
+    <!--App id="idAppCon"/-->
+
+</mvc:View>

@@ -1,0 +1,62 @@
+<mvc:View   xmlns="sap.m" 
+            xmlns:mvc="sap.ui.core.mvc"
+            xmlns:form="sap.ui.layout.form"
+            controllerName="wp.fin.payroll.controller.GetOrder">
+    <Page title="Get Order">
+        <headerContent>
+            <Toolbar >
+        <!-- <ToolbarSpacer ></ToolbarSpacer> -->
+            <Label text="Order#"/><Input id="idOrder" value="{OrderSingle>/orderData/Vbeln}" width="100px"/>
+            <Button icon="sap-icon://search" press="onGetOrder"/>
+            <Label text="User#"/><Input id="idUser" value="{OrderSingle>/orderData/Ernam}" width="100px" submit="onUserPress"/>
+            </Toolbar>
+        </headerContent>
+        <content>
+            <form:SimpleForm id="id1" title="Single Order Data">
+                <form:content>
+                <Label text="Erdat"/><Input value="{OrderSingle>/orderData/Erdat}" width="300px" enabled="false"/>
+                <Label text="Ernam"/><HBox><Input id="idErnam" value="{OrderSingle>/orderData/Ernam}" width="300px" enabled="true" submit="onErnamPress"/>
+                        <Button icon="sap-icon://search" press="onErnamPress"/></HBox>
+                <Label text="Audat"/><Input value="{OrderSingle>/orderData/Audat}" width="300px" enabled="false"/>
+                <Label text="Auart"/><Input value="{OrderSingle>/orderData/Auart}" width="300px" enabled="false"/>
+                <Label text="Netwr"/><Input value="{OrderSingle>/orderData/Netwr}" width="300px" enabled="false"/>
+                <Label text="Waerk"/><Input value="{OrderSingle>/orderData/Waerk}" width="300px" enabled="false"/>
+                <Label text="Vkorg"/><Input value="{OrderSingle>/orderData/Vkorg}" width="300px" enabled="false"/>
+                </form:content>
+            </form:SimpleForm>
+        </content>
+        <content>
+            <form:SimpleForm id="id2" title="Mutliple Order Data">
+            <form:content>
+                <Table id="idOrderDetails" items="{OrderTab>/orderDataMultiple/records}" mode="SingleSelectMaster" growing="true" growingThreshold="5" itemPress="onItemPress">
+                    <columns>
+                        <Column><header><Text text="Vbeln"/></header></Column>
+                        <Column><header><Text text="Erdat"/></header></Column>
+                        <Column><header><Text text="Ernam"/></header></Column>
+                        <Column><header><Text text="Audat"/></header></Column>
+                        <Column><header><Text text="Auart"/></header></Column>
+                        <Column><header><Text text="Netwr"/></header></Column>
+                        <Column><header><Text text="Waerk"/></header></Column>
+                        <Column><header><Text text="Vkorg"/></header></Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                            <Label text="{OrderTab>Vbeln}"/>
+                            <Label text="{OrderTab>Erdat}"/>
+                            <Label text="{OrderTab>Ernam}"/>
+                            <Label text="{OrderTab>Audat}"/>
+                            <Label text="{OrderTab>Auart}"/>
+                            <Label text="{OrderTab>Netwr}"/>
+                            <Label text="{OrderTab>Waerk}"/>
+                            <Label text="{OrderTab>Vkorg}"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </form:content>
+            </form:SimpleForm>
+        </content>
+        <footer></footer>
+    </Page>
+</mvc:View>

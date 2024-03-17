@@ -1,0 +1,38 @@
+<core:FragmentDefinition xmlns:form="sap.ui.layout.form"
+                        xmlns:core="sap.ui.core"
+                        xmlns="sap.m">
+        <Table id="idOrderItems" items="{toOrderItems}" itemPress="loadSupplier">
+        <headerToolbar>
+            <Toolbar>
+                <ToolbarSpacer />
+                <Button icon="sap-icon://filter" text="Search" press="onSupplierSearch"></Button>
+            </Toolbar>
+        </headerToolbar>
+            <columns>
+                <Column>
+                    <header>
+                    <Text text="Posnr"/>
+                    </header>
+                </Column>
+                <Column minScreenWidth="Tablet" demandPopin="true">
+                    <header>
+                    <Text text="Material#"/>
+                    </header>
+                </Column>
+                <Column minScreenWidth="Tablet" demandPopin="true">
+                    <header>
+                    <Text text="Quantity"/>
+                    </header>
+                </Column>
+            </columns>
+            <items>
+            <ColumnListItem type="Navigation">
+                <cells>
+                <Text text="{Posnr}"/>
+                <Text text="{Matnr}"/>
+                <Input value="{Kwmeng}"/>
+                </cells>
+            </ColumnListItem>
+            </items>
+        </Table>
+</core:FragmentDefinition>

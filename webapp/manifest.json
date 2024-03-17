@@ -1,0 +1,154 @@
+{
+    "sap.app": {
+        "id": "wp.fin.payroll",
+        "type": "application",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "i18n": "i18n/i18n.properties",
+        "ach": "FIN-AR",
+        "tags": {
+            "keywords": ["fruits","store"]
+        },
+        "dataSources": {
+            "orderService":{
+                "uri": "/sap/opu/odata/sap/ZSDGW_ORDER_SRV/",
+                "type":"OData",
+                "settings": {
+                    "odataVersion": "2.0"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "deviceTypes":{
+            "desktop": true,
+            "phone": true,
+            "tablet": true
+        },
+        "fullWidth": true,
+        "supportedThemes": [
+            "sap_fiori3",
+            "sap_fiori3_dark"
+        ]
+    },
+    "sap.ui5":{
+        "library": {
+            "css": "style/mycss.css"
+        },
+        "dependencies": {
+            "minUI5Version": "1.102.19",
+            "libs": {
+                "sap.m": {"minVersion": "1.102.19"},
+                "sap.ui.layout": {"minVersion": "1.102.19"}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+
+        "models": {
+            "": {
+                "type": "sap.ui.model.odata.v2.ODataModel",
+                "dataSource": "orderService",
+                "settings": {}
+            },
+            "fruits": {
+                "type": "sap.ui.model.json.JSONModel",
+                "uri": "sampleData/fruits.json",
+                "settings": {}
+            },
+
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleUrl": "i18n/i18n.properties"
+                }
+            }
+        },
+
+        "rootView":{
+            "id": "idRootView",
+            "type": "XML",
+            "viewName": "wp.fin.payroll.view.App"
+        },
+
+        "routing": {
+            "config":{
+                "controlId": "idAppCon",
+                "clearControlAggregation": true,
+                "viewType": "XML",
+                "viewPath": "wp.fin.payroll.view"
+            },
+            "routes":[
+                {
+                    "pattern": "",
+                    "name": "home",
+                    "target":["master","defaultDetail"]
+                },
+                {
+                    "pattern": "AddNewProduct",
+                    "name": "addNewProduct",
+                    "target": ["master","addNewProduct"]
+                },
+                {
+                    "pattern": "GetOrderDetails",
+                    "name": "getOrder",
+                    "target": ["master","getOrder"]
+                },
+                {
+                    "pattern": "{idFruit}",
+                    "name": "ordDetails",
+                    "target": ["master","detailView"]
+                },
+                {
+                    "pattern": "fruits/{idFruit}",
+                    "name": "details",
+                    "target": ["master","detailView"]
+                },
+                {
+                    "pattern": "supplier/{idIndex}",
+                    "name": "supplier",
+                    "target": ["master","supplierView"]
+                }
+            ],
+            "targets": {
+                "master":{
+                    "viewName":"View2",
+                    "viewId": "idView2",
+                    "controlAggregation": "masterPages"
+                },
+                "defaultDetail":{
+                    "viewName":"DefDetail",
+                    "viewId": "idDefDetail",
+                    "controlAggregation": "detailPages"
+                },
+                "detailView":{
+                    "viewName":"View1",
+                    "viewId": "idView1",
+                    "controlAggregation": "detailPages"
+                },
+                "supplierView":{
+                    "viewName":"Supplier",
+                    "viewId": "idViewSupplier",
+                    "controlAggregation": "detailPages"
+                },
+                "addNewProduct":{
+                    "viewName":"AddNewProduct",
+                    "viewId":"idViewAddProduct",
+                    "controlAggregation": "detailPages"
+                },
+                "getOrder":{
+                    "viewName":"GetOrder",
+                    "viewId":"idViewGetOrder",
+                    "controlAggregation": "detailPages"
+                }
+
+            }
+        }
+    }
+}

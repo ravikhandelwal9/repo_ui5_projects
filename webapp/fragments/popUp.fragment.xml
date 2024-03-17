@@ -1,0 +1,5 @@
+<core:FragmentDefinition xmlns:form="sap.ui.layout.form"
+                        xmlns:core="sap.ui.core"
+                        xmlns="sap.m">
+<SelectDialog id="idDialog" rememberSelections="true" confirm="onValueSelect" search="onSearch"></SelectDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,46 @@
+<mvc:View   xmlns:mvc="sap.ui.core.mvc"
+            xmlns="sap.m"
+            controllerName="wp.fin.payroll.controller.View2">
+            <SearchField id="idSearch" search="onSearch" liveChange="onSearch"></SearchField>
+            <Page title ="View2" navButtonPress="goNext" showNavButton="false" showFooter="true">
+            <headerContent>
+            <Toolbar >
+            <!-- <Button icon="sap-icon://delete" press="onDeleteSelected"/> -->
+            <Button icon="sap-icon://add" press="onAddPress"/>
+            <Button icon="sap-icon://search" press="onSearchPress"/>
+            <Button icon="sap-icon://home" press="onHomePress"/>
+            </Toolbar>
+            </headerContent>
+            <!--Text text="View 2"/>
+            <Button id="idBack" text="Go Back" icon="sap-icon://arrow-left" press="goBack"/-->
+            <content>
+            <List   id="idFruitsList" 
+                    items="{path: '/OrderHeaderSet', sorter :{path: 'Erdat', group: true} }"
+                    mode="SingleSelectMaster"
+                    selectionChange="onItemPress"
+                    itemPress="onItemPress"
+                    growing="true"
+                    growingThreshold="10">
+                <items>
+                        <ObjectListItem title="{Vbeln}" intro="{Audat}" icon="{image}" number="{Netwr}" numberUnit="{Waerk}">
+                            <firstStatus>
+                                <!-- <ObjectStatus text="{path : 'availability', formatter: '.formatter.getStatus'}" state="{path: 'availability', formatter:'.formatter.getStatusColor'}"></ObjectStatus> -->
+                                <ObjectStatus text="{path : 'Auart'}"></ObjectStatus>
+                            </firstStatus>
+                            <!--Atributes-->
+                            <attributes>
+                                <ObjectAttribute text="{Vkorg}"/>
+                                <ObjectAttribute text="{Ernam}"/>
+                            </attributes>
+                        </ObjectListItem>
+                </items>
+            </List>
+            </content>
+            <footer>
+            <!-- <Toolbar>
+                <ToolbarSpacer ></ToolbarSpacer>
+                <Button text="Add" icon="sap-icon://add" press="onAddPress"/>
+            </Toolbar> -->
+            </footer>
+    </Page>
+</mvc:View>
